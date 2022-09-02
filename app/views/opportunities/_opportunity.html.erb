@@ -20,8 +20,19 @@
   </p>
 
   <% if action_name != "show" %>
+  <div>
     <%= link_to "Show this opportunity", opportunity, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+  
+  <div>
     <%= link_to 'Edit this opportunity', edit_opportunity_path(opportunity), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
+  </div>
+
+  <div>
+    <%= link_to 'Create new opportunity', new_opportunity_path(opportunity), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+</div>
+
   <% end %>
 </div>

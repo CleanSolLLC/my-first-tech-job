@@ -21,6 +21,7 @@ class OpportunitiesController < ApplicationController
 
   # POST /opportunities or /opportunities.json
   def create
+    binding.pry
     @opportunity = Opportunity.new(opportunity_params)
 
     respond_to do |format|
