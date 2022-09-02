@@ -1,5 +1,6 @@
 class OpportunitiesController < ApplicationController
   before_action :set_opportunity, only: %i[ show edit update destroy ]
+  before_action :set_user, only: %i[ create ]
 
   # GET /opportunities or /opportunities.json
   def index
@@ -21,11 +22,10 @@ class OpportunitiesController < ApplicationController
 
   # POST /opportunities or /opportunities.json
   def create
-    binding.pry
     @opportunity = Opportunity.new(opportunity_params)
-
     respond_to do |format|
       if @opportunity.save
+        @user.opportunities << @opportunity
         format.html { redirect_to opportunity_url(@opportunity), notice: "Opportunity was successfully created." }
         format.json { render :show, status: :created, location: @opportunity }
       else
@@ -62,6 +62,10 @@ class OpportunitiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_opportunity
       @opportunity = Opportunity.find(params[:id])
+    end
+
+    def set_user
+      @user = User.find(current_user.id)
     end
 
     # Only allow a list of trusted parameters through.
