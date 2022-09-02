@@ -1,17 +1,13 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-
-  resources :users
+  root to: 'users#dashboard'
+  
+  devise_for :users, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout' }
 
   resources :opportunities
 
-  unauthenticated do
-    root to: 'static_pages#home'
- end
- 
- authenticated do
-   get 'users/opportunities/new', :to => 'opportunities#new'
- end
+#   unauthenticated do
+#     root to: 'static_pages#home'
+#  end
   
 end

@@ -11,4 +11,6 @@
   <div id="opportunities" class="min-w-full">
     <%= render @opportunities %>
   </div>
+
+  <%= button_to "Log out", destroy_user_session_path, method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %>
 </div>
