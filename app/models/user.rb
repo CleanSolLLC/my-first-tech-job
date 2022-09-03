@@ -6,4 +6,13 @@ class User < ApplicationRecord
 
   has_many :user_opportunities
   has_many :opportunities, through: :user_opportunities
+
+  validates :username, presence: true, uniqueness: true
+
+  enum role: [:user, :moderator, :admin]
+  after_initialize :set_default_role, :if => :new_record?
+
+  def set_default_role
+    self.role ||= user
+  end
 end
