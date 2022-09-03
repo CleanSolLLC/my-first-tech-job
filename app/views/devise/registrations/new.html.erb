@@ -9,9 +9,14 @@
   </div>
  
   <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+    <%= f.label "First name full" %><br />
+    <%= f.text_field :f_name_full, autocomplete: "f_name_full" %>
   </div>
+
+  <div class="field">
+    <%= f.label "Last name initial" %><br />
+    <%= f.text_field :l_name_initial, autocomplete: "l_name_initial" %>
+  </div> 
 
   <div class="field">
     <%= f.label :password %>
