@@ -1,39 +1,60 @@
-<h2>Sign up</h2>
+<div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
+    <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign Up to Access My First Tech Job Application!</h2>
+  </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div class="mt-16 sm:mx-auto sm:w-full sm:max-w-md">
+  <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">  
+  
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
- 
-  <div class="field">
-    <%= f.label "First name full" %><br />
-    <%= f.text_field :f_name_full, autocomplete: "f_name_full" %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+      
+      <div class="mt-1">
+        <div class="block text-sm font-medium text-gray-700">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
+        </div>
+      </div>
+
+      <div class="mt-1">
+      <div class="block text-sm font-medium text-gray-700">
+        <%= f.label "First name full" %><br />
+        <%= f.text_field :f_name_full, :class => "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
+      </div>
+    </div>
+
+    <div class="mt-1">
+    <div class="block text-sm font-medium text-gray-700">
+      <%= f.label "Last name initial" %><br />
+      <%= f.text_field :l_name_initial, :class => "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label "Last name initial" %><br />
-    <%= f.text_field :l_name_initial, autocomplete: "l_name_initial" %>
-  </div> 
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
+      <div class="mt-1">
+        <div class="block text-sm font-medium text-gray-700" 
+        <%= f.label :password %><br />
+        <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+        <%= f.password_field :password, :class => "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+      <div class="mt-1">
+      <div class="block text-sm font-medium text-gray-700" 
+      <%= f.label "Password confirmation" %><br />
+      <%= f.password_field :password_confirmation, :class => "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
+      </div>
+    </div>
+    <br>
+    
+    <div>
+      <button type="submit" class="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sign up</button>
+    </div>
 <% end %>
-
+<br>
 <%= render "devise/shared/links" %>
+</div>
